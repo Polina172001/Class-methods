@@ -14,30 +14,34 @@ test('check name < 2', () => {
   expect(() => {
     // eslint-disable-next-line no-new
     new Character('P', 'Bowman');
-  }).toThrowError(new Error('name меньше 2'));
+  }).toThrowError('Не корректная длина name');
 });
 
 test('check name > 10', () => {
   expect(() => {
     // eslint-disable-next-line no-new
     new Character('Pllkkkkkkkkkkkkk', 'Bowman');
-  }).toThrowError(new Error('name больше 10'));
+  }).toThrowError('Не корректная длина name');
 });
 
 test('check type', () => {
   expect(() => {
     // eslint-disable-next-line no-new
     new Character('Polina', 'Black');
-  }).toThrowError(new Error('нет такого типа'));
+  }).toThrowError('Нет такого типа');
 });
 
 test('check levelUp', () => {
-  const result = new Character('Polina', 'Bowman');
-  result.levelUp();
-  expect(result.health).toBe(100);
-  expect(result.attack).toBe(5);
-  expect(result.defence).toBe(5);
-  expect(result.level).toBe(2);
+  const bowman = new Character('Polina', 'Bowman');
+  bowman.levelUp();
+  expect(bowman).toEqual({
+    attack: 30,
+    defence: 30,
+    health: 100,
+    level: 2,
+    name: 'Polina',
+    type: 'Bowman',
+  });
 });
 
 test('check damage', () => {

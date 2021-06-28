@@ -1,17 +1,21 @@
-const str = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
+const types = ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'];
 
 export default class Character {
   constructor(name, type) {
     if (name.length < 2 || name.length > 10) {
       throw new Error('Не корректная длина name');
     }
-    if (str.indexOf(type) === -1) {
-      throw new Error('Не является строкой');
+    if (types.includes(this.type)) {
+      throw new Error('Нет такого типа');
     }
     this.name = name;
     this.type = type;
     this.health = 100;
     this.level = 1;
+    // eslint-disable-next-line no-undef
+    this.attack;
+    // eslint-disable-next-line no-undef
+    this.defence;
   }
 
   levelUp() {
