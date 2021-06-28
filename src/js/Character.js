@@ -8,14 +8,39 @@ export default class Character {
     if (types.includes(this.type)) {
       throw new Error('Нет такого типа');
     }
-    this.name = name;
-    this.type = type;
+    switch (type) {
+      case 'Bowman':
+        this.attack = 25;
+        this.defence = 25;
+        break;
+      case 'Daemon':
+        this.attack = 10;
+        this.defence = 40;
+        break;
+      case 'Magician':
+        this.attack = 10;
+        this.defence = 40;
+        break;
+      case 'Swordsman':
+        this.attack = 40;
+        this.defence = 10;
+        break;
+      case 'Undead':
+        this.attack = 25;
+        this.defence = 25;
+        break;
+      case 'Zombie':
+        this.attack = 40;
+        this.defence = 10;
+        break;
+      default:
+        break;
+    }
+
     this.health = 100;
     this.level = 1;
-    // eslint-disable-next-line no-undef
-    this.attack;
-    // eslint-disable-next-line no-undef
-    this.defence;
+    this.name = name;
+    this.type = type;
   }
 
   levelUp() {
