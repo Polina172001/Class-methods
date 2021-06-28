@@ -5,9 +5,10 @@ export default class Character {
     if (name.length < 2 || name.length > 10) {
       throw new Error('Не корректная длина name');
     }
-    if (types.includes(this.type)) {
+    if (!types.includes(type)) {
       throw new Error('Нет такого типа');
     }
+    // определяем тип и задаем нужные значения для полей attack и defence
     switch (type) {
       case 'Bowman':
         this.attack = 25;
@@ -46,8 +47,8 @@ export default class Character {
   levelUp() {
     if (this.health > 0) {
       this.level += 1;
-      this.attack *= 20 / 100;
-      this.defence *= 20 / 100;
+      this.attack *= 1.2;
+      this.defence *= 1.2;
       this.health = 100;
     } else {
       throw new Error('Персонаж умер');

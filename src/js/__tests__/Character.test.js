@@ -1,12 +1,14 @@
 import Character from '../Character';
 
-test('check parent', () => {
-  const result = new Character('Polina', 'Bowman');
-  expect(result).toEqual({
+test('должен правильно быть сгенерирован Bowman', () => {
+  const bowman = new Character('Polina', 'Bowman');
+  expect(bowman).toEqual({
     name: 'Polina',
     type: 'Bowman',
     health: 100,
     level: 1,
+    attack: 25,
+    defence: 25,
   });
 });
 
@@ -31,7 +33,7 @@ test('check type', () => {
   }).toThrowError('Нет такого типа');
 });
 
-test('check levelUp', () => {
+test('метод levelUp правильно сработал', () => {
   const bowman = new Character('Polina', 'Bowman');
   bowman.levelUp();
   expect(bowman).toEqual({
