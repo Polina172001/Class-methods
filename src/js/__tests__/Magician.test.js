@@ -1,8 +1,8 @@
 import Magician from '../Magician';
 
 test('check Magician', () => {
-  const result = new Magician('Polina', 'Magician');
-  expect(result).toEqual({
+  const magician = new Magician('Polina', 'Magician');
+  expect(magician).toEqual({
     name: 'Polina',
     type: 'Magician',
     health: 100,
